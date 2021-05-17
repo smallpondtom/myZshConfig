@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+#fi
+
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -76,6 +83,7 @@ plugins=(
     autopep8
     zsh-autosuggestions
     colorize
+    zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -107,7 +115,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # zsh syntax highlighting 
-source /home/smallpondtom/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /home/smallpondtom/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Zsh Autojump 
 [[ -s /home/smallpondtom/.autojump/etc/profile.d/autojump.sh  ]] && source /home/smallpondtom/.autojump/etc/profile.d/autojump.sh
 autoload -U compinit && compinit -u
@@ -139,6 +147,8 @@ echo  '    ██║   ██║   ██║██║╚██╔╝██║█
 echo  '    ██║   ╚██████╔╝██║ ╚═╝ ██║╚██████╔╝    ╚██████╗╚██████╔╝██████╔╝███████╗'
 echo  '    ╚═╝    ╚═════╝ ╚═╝     ╚═╝ ╚═════╝      ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝ '
 
+# Start at the $HOME directory 
+cd $HOME
 
 # Node.JS path
 export PATH=/home/smallpondtom/.nvm/versions/node/v15.8.0/bin:$PATH
@@ -155,16 +165,30 @@ alias lt='exa -aT --color=always --group-directories-first' # tree listing
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/smallpondtom/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/smallpondtomo/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/smallpondtom/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/smallpondtom/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/smallpondtomo/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/smallpondtomo/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/smallpondtom/anaconda3/bin:$PATH"
+        export PATH="/home/smallpondtomo/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+#source ~/powerlevel10k/powerlevel10k.zsh-theme
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+#[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# nvm settings 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Go path
+export PATH=/usr/local/go/bin:$PATH
+
+# Python path 
+# export PATH=/usr/bin/python3.9:$PATH
