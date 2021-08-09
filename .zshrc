@@ -15,7 +15,7 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="takashiyoshida"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -192,3 +192,18 @@ export PATH=/usr/local/go/bin:$PATH
 
 # Python path 
 # export PATH=/usr/bin/python3.9:$PATH
+
+# XLaunch settings
+export DISPLAY=192.168.1.121:0.0
+export LIBGL_ALWAYS_INDIRECT=0
+
+# Git fix configuration 
+alias 'git clone'='git clone --depth=1'
+
+# JAVA Setup
+export JAVA_HOME='/usr/local/java/jdk1.8.0_291'
+export PATH=$JAVA_HOME/bin:$PATH
+
+# Sourcing ROS1 Noetic
+source /opt/ros/noetic/setup.zsh
+
